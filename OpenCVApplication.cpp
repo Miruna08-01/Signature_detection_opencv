@@ -501,7 +501,11 @@ float cosine_distance(const std::vector<Point2f>& v1, const std::vector<Point2f>
 	return 1 - (dotProduct / (std::sqrt(magnitudeV1) * std::sqrt(magnitudeV2)));
 }
 // Function to classify a test signature using the KNN algorithm
-
+// This function has 3 parameters : 
+//    1. train_set : this is a hashmap containing <signature, boolean value> pairs. train_set is used to "teach" the program which signatures are genuine and forged
+//	  2. test_signature : this is the signature that will be tested
+//	  3. k : the number of neighbors from the knn algorithm
+//    4. distance_metric : this can be euclidean or cosine.
 bool knn_classify(const std::vector<std::pair<std::vector<Point2f>, std::string>>& train_set,
 	const std::vector<Point2f>& test_signature, int k, const std::string& distance_metric) {
 
